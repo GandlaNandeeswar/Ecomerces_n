@@ -1,0 +1,32 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>Track Your Order</h1>
+  </section>
+
+  <section class="track-wrap">
+    <div class="track-left">
+      <img
+        class="truck-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Truck_icon.svg/512px-Truck_icon.svg.png"
+        alt="Truck"
+      />
+      <div class="track-meta">
+        <div><strong>ETA:</strong> <span id="etaText">--</span></div>
+        <div class="muted">Live update every few seconds (demo)</div>
+      </div>
+    </div>
+
+    <div class="track-right">
+      <h3>Status Timeline</h3>
+      <div id="timelineSteps" class="timeline"></div>
+      <div id="paymentStatusBox" class="muted"></div>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/common.js' %}"></script>
+  <script src="{% static 'shop/js/track_order.js' %}"></script>
+{% endblock %}
+

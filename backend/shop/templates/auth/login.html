@@ -1,0 +1,32 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="auth-wrap">
+    <div class="auth-card">
+      <h1>Login</h1>
+      <p class="muted">Use your username to get JWT tokens.</p>
+
+      <form id="loginForm">
+        <label>
+          Username
+          <input type="text" id="loginUsername" required />
+        </label>
+        <label>
+          Password
+          <input type="password" id="loginPassword" required />
+        </label>
+        <button class="btn primary" type="submit">Login</button>
+      </form>
+
+      <p class="muted">
+        New here?
+        <a href="/auth/signup/">Create account</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/common.js' %}"></script>
+  <script src="{% static 'shop/js/auth.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>Payment</h1>
+  </section>
+
+  <section class="payment-wrap">
+    <div class="payment-card">
+      <div id="paymentInfo" class="loading">Loading...</div>
+
+      <div id="paymentActions" style="display: none;">
+        <div id="cardActions" style="display: none;">
+          <button class="btn primary" id="cardPayBtn" type="button">Pay Now (Demo)</button>
+        </div>
+
+        <div id="upiActions" style="display: none;">
+          <p class="muted">UPI via PhonePe (demo). After you complete payment, click confirm.</p>
+          <a class="btn primary" id="phonePeLink" href="#" target="_blank" rel="noopener">Pay with PhonePe</a>
+          <button class="btn secondary" id="upiConfirmBtn" type="button">I completed payment</button>
+        </div>
+
+        <div id="codActions" style="display: none;">
+          <button class="btn primary" id="codConfirmBtn" type="button">Confirm COD & Track</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/common.js' %}"></script>
+  <script src="{% static 'shop/js/payment.js' %}"></script>
+{% endblock %}
+

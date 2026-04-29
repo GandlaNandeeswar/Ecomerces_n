@@ -1,0 +1,62 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>Checkout</h1>
+  </section>
+
+  <section class="checkout-grid">
+    <div class="checkout-form">
+      <h3>Shipping Details</h3>
+      <form id="checkoutForm">
+        <label>
+          Full Name
+          <input type="text" name="full_name" id="full_name" required />
+        </label>
+        <label>
+          Phone
+          <input type="tel" name="phone" id="phone" required />
+        </label>
+        <label>
+          Address Line 1
+          <input type="text" name="address_line1" id="address_line1" required />
+        </label>
+        <label>
+          Address Line 2 (optional)
+          <input type="text" name="address_line2" id="address_line2" />
+        </label>
+        <label>
+          City
+          <input type="text" name="city" id="city" required />
+        </label>
+        <label>
+          State
+          <input type="text" name="state" id="state" required />
+        </label>
+        <label>
+          Postal Code
+          <input type="text" name="postal_code" id="postal_code" required />
+        </label>
+
+        <h3>Payment Option</h3>
+        <div class="radio-group">
+          <label><input type="radio" name="payment_method" value="CARD" checked /> Card</label>
+          <label><input type="radio" name="payment_method" value="UPI" /> UPI</label>
+          <label><input type="radio" name="payment_method" value="COD" /> COD</label>
+        </div>
+
+        <button class="btn primary" type="submit">Place Order</button>
+      </form>
+    </div>
+
+    <div class="checkout-side">
+      <h3>Order Summary</h3>
+      <div id="checkoutSummary" class="summary-box">Loading...</div>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/common.js' %}"></script>
+  <script src="{% static 'shop/js/checkout.js' %}"></script>
+{% endblock %}
+
