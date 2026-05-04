@@ -8,13 +8,22 @@
 
   <section class="track-wrap">
     <div class="track-left">
-      <img
-        class="truck-img"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Truck_icon.svg/512px-Truck_icon.svg.png"
-        alt="Truck"
-      />
+      <div class="truck-art" aria-hidden="true">
+        <svg class="truck-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="22" width="30" height="18" rx="3" fill="#5A46FF"></rect>
+          <path d="M36 27H46L54 34V40H36V27Z" fill="#7A68FF"></path>
+          <rect x="40" y="30" width="8" height="5" rx="1" fill="#D6D1FF"></rect>
+          <circle cx="19" cy="43" r="5" fill="#1C1836"></circle>
+          <circle cx="46" cy="43" r="5" fill="#1C1836"></circle>
+          <circle cx="19" cy="43" r="2" fill="#F5F4FF"></circle>
+          <circle cx="46" cy="43" r="2" fill="#F5F4FF"></circle>
+          <rect x="6" y="40" width="48" height="2" fill="#4638B8"></rect>
+        </svg>
+      </div>
       <div class="track-meta">
+        <div><strong>Current Status:</strong> <span id="currentStatusText">--</span></div>
         <div><strong>ETA:</strong> <span id="etaText">--</span></div>
+        <div><strong>Ordered On:</strong> <span id="orderedOnText">--</span></div>
         <div class="muted">Live update every few seconds (demo)</div>
       </div>
     </div>

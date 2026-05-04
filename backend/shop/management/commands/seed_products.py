@@ -10,55 +10,85 @@ PRODUCT_SEED = [
         "name": "Urban Runner Sneakers",
         "price_in_inr": "1499.00",
         "description": "Lightweight everyday runner for daily comfort.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?shoes&sig=101",
+        "image_url": "https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
     {
         "name": "Cushion Step Casual Shoes",
         "price_in_inr": "1799.00",
         "description": "Soft cushioning with breathable upper fabric.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?sneakers&sig=102",
+        "image_url": "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
     {
         "name": "Street Style Loafers",
         "price_in_inr": "1399.00",
         "description": "Clean look with durable build for street-ready style.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?loafers&sig=103",
+        "image_url": "https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
     {
         "name": "Premium Leather Formal",
         "price_in_inr": "2499.00",
         "description": "Polished leather finish for formal events.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?leather-shoes&sig=104",
+        "image_url": "https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200",
     },
     {
-        "name": "Everyday Sports Trainers",
-        "price_in_inr": "1899.00",
-        "description": "Supportive trainers for gym and outdoor walks.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?trainers&sig=105",
+        "name": "Classic Denim Jacket",
+        "price_in_inr": "2299.00",
+        "description": "Smart fit jacket for casual and travel outfits.",
+        "image_url": "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
     {
-        "name": "Comfort Cloud Slip-ons",
-        "price_in_inr": "999.00",
-        "description": "Easy slip-on design with all-day comfort.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?slip-ons&sig=106",
-    },
-    {
-        "name": "Trail Grip Outdoor Shoes",
-        "price_in_inr": "2199.00",
-        "description": "Grip-focused outsole for off-road and trails.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?outdoor-shoes&sig=107",
-    },
-    {
-        "name": "Classic Court Sneakers",
+        "name": "Cotton Hoodie Navy",
         "price_in_inr": "1599.00",
-        "description": "Classic court vibe with modern cushioning.",
-        "image_url": "https://source.unsplash.com/featured/1200x800/?court-shoes&sig=108",
+        "description": "Soft hoodie with warm inner lining and front pocket.",
+        "image_url": "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "Linen Summer Shirt",
+        "price_in_inr": "1199.00",
+        "description": "Breathable linen shirt perfect for summer days.",
+        "image_url": "https://images.pexels.com/photos/4066292/pexels-photo-4066292.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "Slim Fit Chino Pants",
+        "price_in_inr": "1399.00",
+        "description": "Stretchable slim fit chinos for office and casual use.",
+        "image_url": "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "Chrono Steel Watch",
+        "price_in_inr": "3299.00",
+        "description": "Elegant analog watch with stainless steel strap.",
+        "image_url": "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "Smart Fit Digital Watch",
+        "price_in_inr": "2899.00",
+        "description": "Digital smartwatch with activity and sleep tracking.",
+        "image_url": "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "Leather Strap Watch",
+        "price_in_inr": "2599.00",
+        "description": "Minimal design watch with premium leather strap.",
+        "image_url": "https://images.pexels.com/photos/364822/pexels-photo-364822.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "City Backpack Pro",
+        "price_in_inr": "1899.00",
+        "description": "Spacious travel backpack with laptop compartment.",
+        "image_url": "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+        "name": "Polarized Sunglasses",
+        "price_in_inr": "999.00",
+        "description": "UV-protected sunglasses with lightweight frame.",
+        "image_url": "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=1200",
     },
 ]
 
 
 class Command(BaseCommand):
-    help = "Seed 7-10 INR shoe products into the Product table."
+    help = "Seed attractive multi-category INR products into the Product table."
 
     def handle(self, *args, **options):
         created = 0

@@ -7,7 +7,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f7f7fb;
+  background: linear-gradient(180deg, #f3f7ff 0%, #f9f3ff 48%, #fffaf4 100%);
   color: #111;
 }
 
@@ -85,7 +85,8 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
   border-bottom: 1px solid #e8e8ef;
   z-index: 10;
 }
@@ -177,6 +178,7 @@ body {
   border: 1px solid #e8e8ef;
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 10px 24px rgba(69, 85, 168, 0.08);
 }
 
 .product-card img {
@@ -326,14 +328,60 @@ body {
   border-radius: 16px;
   padding: 18px;
   margin: 0 auto;
+  box-shadow: 0 12px 28px rgba(67, 53, 143, 0.09);
+}
+
+.auth-card h1 {
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d8dbeb;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #7860ff;
+  box-shadow: 0 0 0 3px rgba(120, 96, 255, 0.15);
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 44px;
 }
 
 .icon-btn {
-  border: none;
-  background: transparent;
+  border: 1px solid #d8dbeb;
+  background: #fff;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 4px 7px;
   color: #111;
+  border-radius: 8px;
+  position: absolute;
+  right: 8px;
+  bottom: 7px;
 }
 
 .product-detail {
@@ -362,13 +410,99 @@ body {
 }
 
 .timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  width: 100%;
   margin-top: 12px;
+  overflow-x: auto;
+}
+
+.timeline-line-wrap {
+  min-width: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
 }
 
 .timeline-step {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding: 8px 8px 16px;
+}
+
+.timeline-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: 52%;
+  width: 96%;
+  height: 3px;
+  background: #d9ddf2;
+  border-radius: 999px;
+}
+
+.timeline-step.done:not(:last-child)::after {
+  background: #5a46ff;
+}
+
+.timeline-label {
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  min-height: 30px;
+}
+
+.timeline-status {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #666;
+  font-weight: 700;
+}
+
+.timeline-step .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #cfd3e8;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #cfd3e8;
+}
+
+.timeline-step.done .dot {
+  background: #5a46ff;
+  box-shadow: 0 0 0 2px #5a46ff;
+}
+
+.timeline-step.current .dot {
+  background: #1c1836;
+  box-shadow: 0 0 0 2px #1c1836;
+}
+
+.timeline-truck {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #d9ddf2;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(50, 58, 119, 0.18);
+}
+
+.timeline-truck svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Legacy stacked style no longer used, kept minimal compatibility. */
+.timeline-step-legacy {
   background: #fff;
   border: 1px solid #e8e8ef;
   border-radius: 14px;
@@ -378,20 +512,20 @@ body {
   gap: 10px;
 }
 
-.timeline-step .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #cfcfe4;
-}
-
-.timeline-step.done .dot {
-  background: #111;
-}
-
-.truck-img {
+.truck-art {
   width: 190px;
-  height: auto;
+  height: 120px;
+  border-radius: 14px;
+  background: linear-gradient(140deg, #f0ecff 0%, #e6f0ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.truck-svg {
+  width: 150px;
+  height: 94px;
 }
 
 .track-wrap {
@@ -406,6 +540,7 @@ body {
   border: 1px solid #e8e8ef;
   border-radius: 16px;
   padding: 16px;
+  box-shadow: 0 10px 24px rgba(69, 85, 168, 0.08);
 }
 
 /* Toast notifications */

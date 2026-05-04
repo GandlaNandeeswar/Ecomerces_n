@@ -25,11 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     signupForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const username = document.getElementById("signupUsername").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = signupPasswordInput.value;
+
+      if (!username || !password) {
+        showToast("Username and password are required.", "error");
+        return;
+      }
+
       try {
         const payload = {
-          username: document.getElementById("signupUsername").value.trim(),
-          email: document.getElementById("signupEmail").value.trim(),
-          password: signupPasswordInput.value,
+          username,
+          email,
+          password,
         };
         const tokens = await apiFetch("/api/auth/register/", {
           method: "POST",
@@ -45,13 +54,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Login page behaviors
   const loginForm = document.getElementById("loginForm");
+  const loginPasswordInput = document.getElementById("loginPassword");
+  const toggleLoginPasswordBtn = document.getElementById("toggleLoginPasswordBtn");
+
+  if (loginPasswordInput && toggleLoginPasswordBtn) {
+    toggleLoginPasswordBtn.style.display = "none";
+
+    loginPasswordInput.addEventListener("input", () => {
+      toggleLoginPasswordBtn.style.display = loginPasswordInput.value.length > 0 ? "inline-flex" : "none";
+    });
+
+    let loginPasswordShown = false;
+    toggleLoginPasswordBtn.addEventListener("click", () => {
+      loginPasswordShown = !loginPasswordShown;
+      loginPasswordInput.type = loginPasswordShown ? "text" : "password";
+    });
+  }
+
   if (loginForm) {
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      if (!username || !password) {
+        showToast("Enter username and password.", "error");
+        return;
+      }
+
       try {
         const payload = {
-          username: document.getElementById("loginUsername").value.trim(),
-          password: document.getElementById("loginPassword").value,
+          username,
+          password,
         };
         const tokens = await apiFetch("/api/token/", {
           method: "POST",
@@ -60,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setLoggedIn(tokens);
         window.location.href = "/";
       } catch (err) {
-        showToast(err.message || "Login failed.", "error");
+        showToast(err.message || "Invalid username or password.", "error");
       }
     });
   }

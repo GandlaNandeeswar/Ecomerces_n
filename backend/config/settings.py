@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -136,8 +137,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # SimpleJWT defaults are fine for a demo app, but set readable lifetimes.
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": 60 * 30,  # 30 minutes
-    "REFRESH_TOKEN_LIFETIME": 60 * 60 * 24 * 7,  # 7 days
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
 }

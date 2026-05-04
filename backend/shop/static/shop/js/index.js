@@ -9,7 +9,12 @@ async function loadProducts() {
   const term = (document.getElementById("searchInput")?.value || "").trim().toLowerCase();
   const filtered = products.filter((p) => (p.name || "").toLowerCase().includes(term));
 
-  filtered.slice(0, 10).forEach((p) => {
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="muted">No products found for your search.</div>`;
+    return;
+  }
+
+  filtered.forEach((p) => {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `

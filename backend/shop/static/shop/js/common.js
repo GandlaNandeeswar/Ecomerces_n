@@ -68,19 +68,28 @@ async function apiFetch(path, options = {}) {
 
   const res = await fetch(path, Object.assign({}, options, { headers }));
 
-  if (res.status === 401) {
+  const isAuthEndpoint = path.startsWith("/api/token/") || path.startsWith("/api/auth/register/");
+  if (res.status === 401 && !isAuthEndpoint) {
     window.location.href = "/auth/login/";
     throw new Error("Unauthorized");
   }
 
   if (!res.ok) {
-    let err = {};
+    let err = null;
+    let text = "";
     try {
       err = await res.json();
-    } catch (_) {
-      // ignore
+    } catch (_jsonError) {
+      try {
+        text = await res.text();
+      } catch (_textError) {
+        // ignore
+      }
     }
-    const msg = err.detail || err.message || "Request failed";
+    const msg =
+      (err && (err.detail || err.message || (Array.isArray(err.non_field_errors) ? err.non_field_errors[0] : ""))) ||
+      text ||
+      `Request failed (${res.status})`;
     throw new Error(msg);
   }
 
