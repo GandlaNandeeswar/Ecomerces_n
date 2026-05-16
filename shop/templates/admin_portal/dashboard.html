@@ -1,0 +1,40 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head admin-head">
+    <div>
+      <h1>Admin dashboard</h1>
+      <p class="muted">Manage shop products and inventory.</p>
+    </div>
+    <div class="admin-head-actions">
+      <a class="btn secondary" href="/admin-portal/database/">View database</a>
+      <a class="btn secondary" href="/">Back to shop</a>
+    </div>
+  </section>
+
+  <section class="admin-wrap">
+    <div class="admin-panel">
+      <h2>Add product</h2>
+      <form id="addProductForm" class="admin-form">
+        <label>Name <input type="text" id="newName" required /></label>
+        <label>Price (INR) <input type="number" id="newPrice" min="0" step="0.01" required /></label>
+        <label>Stock <input type="number" id="newStock" min="0" value="50" required /></label>
+        <label>Image URL <input type="url" id="newImage" required /></label>
+        <label>Description <textarea id="newDescription" rows="3"></textarea></label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="newActive" checked />
+          Active in shop
+        </label>
+        <button class="btn primary" type="submit">Add product</button>
+      </form>
+    </div>
+
+    <div class="admin-panel admin-panel-wide">
+      <h2>Products & inventory</h2>
+      <div id="adminProductsTable" class="data-table-wrap muted">Loading products…</div>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/admin_dashboard.js' %}"></script>
+{% endblock %}

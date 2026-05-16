@@ -1,0 +1,30 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="auth-wrap">
+    <div class="auth-card admin-card">
+      <h1>Admin login</h1>
+      <p class="muted">Staff accounts only. Use a separate page from customer login.</p>
+
+      <form id="adminLoginForm">
+        <label>
+          Username
+          <input type="text" id="adminUsername" required />
+        </label>
+        <label>
+          Password
+          <input type="password" id="adminPassword" required />
+        </label>
+        <button class="btn primary" type="submit">Enter dashboard</button>
+      </form>
+
+      <p class="muted">
+        Customer?
+        <a href="/auth/login/">User login</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/admin_login.js' %}"></script>
+{% endblock %}

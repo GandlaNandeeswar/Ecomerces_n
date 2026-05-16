@@ -1,0 +1,41 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="auth-wrap">
+    <div class="auth-card">
+      <h1>Login</h1>
+      <p class="muted">Use your username to get JWT tokens.</p>
+
+      <form id="loginForm">
+        <label>
+          Username
+          <input type="text" id="loginUsername" required />
+        </label>
+        <label class="password-field">
+          Password
+          <input type="password" id="loginPassword" required />
+          <button class="icon-btn" id="toggleLoginPasswordBtn" type="button" aria-label="Show password">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </label>
+        <button class="btn primary" type="submit">Login</button>
+      </form>
+
+      <p class="muted">
+        New here?
+        <a href="/auth/signup/">Create account</a>
+      </p>
+      <p class="muted">
+        Store admin?
+        <a href="/admin-portal/login/">Admin login</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="{% static 'shop/js/auth.js' %}"></script>
+{% endblock %}
+

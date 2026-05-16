@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head admin-head">
+    <div>
+      <h1>Database explorer</h1>
+      <p class="muted">All data stored in SQLite (<code>backend/db.sqlite3</code>).</p>
+    </div>
+    <div class="admin-head-actions">
+      <a class="btn secondary" href="/admin-portal/">Dashboard</a>
+      <a class="btn secondary" href="/">Shop</a>
+    </div>
+  </section>
+
+  <section class="admin-wrap">
+    <div id="dbSummary" class="db-summary muted">Loading database…</div>
+    <div id="dbTables"></div>
+  </section>
+
+  <script src="{% static 'shop/js/admin_database.js' %}"></script>
+{% endblock %}

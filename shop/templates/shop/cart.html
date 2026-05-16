@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>Your Cart</h1>
+  </section>
+
+  <section class="cart-wrap">
+    <div id="cartItems" class="cart-items"></div>
+    <div id="cartSummary" class="cart-summary"></div>
+  </section>
+
+  <section class="cart-actions">
+    <a class="btn secondary" href="/">Continue Shopping</a>
+    <a class="btn primary" id="checkoutBtn" href="/checkout/">Checkout</a>
+  </section>
+
+  <script src="{% static 'shop/js/common.js' %}"></script>
+  <script src="{% static 'shop/js/cart_page.js' %}"></script>
+{% endblock %}
+

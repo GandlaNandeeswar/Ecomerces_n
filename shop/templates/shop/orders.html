@@ -1,0 +1,16 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>Your Orders</h1>
+  </section>
+
+  <section class="orders-wrap">
+    <div id="ordersList" class="orders-list">Loading...</div>
+  </section>
+
+  <script src="{% static 'shop/js/common.js' %}"></script>
+  <script src="{% static 'shop/js/orders.js' %}"></script>
+{% endblock %}
+
